@@ -6,6 +6,8 @@ use Behat\Behat\Context\ClosuredContextInterface,
     Behat\Behat\Exception\PendingException;
 use Behat\Gherkin\Node\PyStringNode,
     Behat\Gherkin\Node\TableNode;
+use Behat\MinkExtension\Context;
+
 
 //
 // Require 3rd-party libraries here:
@@ -17,7 +19,7 @@ use Behat\Gherkin\Node\PyStringNode,
 /**
  * Features context.
  */
-class FeatureContext extends BehatContext
+class FeatureContext extends Context\MinkContext
 {
     /**
      * Initializes context.
@@ -30,15 +32,19 @@ class FeatureContext extends BehatContext
         // Initialize your context here
     }
 
-//
-// Place your definition and hook methods here:
-//
-//    /**
-//     * @Given /^I have done something with "([^"]*)"$/
-//     */
-//    public function iHaveDoneSomethingWith($argument)
-//    {
-//        doSomethingWith($argument);
-//    }
-//
+    /**
+     * @When /^I search for "([^"]*)"$/
+     */
+    public function iSearchFor2($field)
+    {
+        $this -> fillField("q", "test automation");
+        $this -> pressButton("Search");
+    }
+
+
+
+
+
+
+
 }
