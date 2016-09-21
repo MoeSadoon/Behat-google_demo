@@ -9,28 +9,12 @@ use Behat\Gherkin\Node\PyStringNode,
 use Behat\MinkExtension\Context;
 
 
-//
-// Require 3rd-party libraries here:
-//
-//   require_once 'PHPUnit/Autoload.php';
-//   require_once 'PHPUnit/Framework/Assert/Functions.php';
-//
 
 /**
  * Features context.
  */
 class FeatureContext extends Context\MinkContext
 {
-    /**
-     * Initializes context.
-     * Every scenario gets it's own context object.
-     *
-     * @param array $parameters context parameters (set them up through behat.yml)
-     */
-    public function __construct(array $parameters)
-    {
-        // Initialize your context here
-    }
 
     /**
      * @When /^I search for "([^"]*)"$/
@@ -40,11 +24,5 @@ class FeatureContext extends Context\MinkContext
         $this -> fillField("q", "test automation");
         $this -> pressButton("Search");
     }
-
-
-
-
-
-
 
 }
